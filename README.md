@@ -1,4 +1,4 @@
-# ⚖️ Algorithmic Fairness & Compliance Audit: Credit Risk Model
+# Algorithmic Fairness & Compliance Audit: Credit Risk Model
 
 ### Overview
 This project bridges the gap between **Machine Learning** and **Tech Law**. I developed a Random Forest model to predict credit risk using the German Credit Dataset and subsequently audited the model to evaluate its compliance with the **EU AI Act (Article 10)** and the **GDPR (Article 5 - Data Minimization)**.
@@ -11,7 +11,7 @@ Unlike standard data science projects that stop at predictive accuracy, this rep
 
 ---
 
-### 📊 TL;DR: Compliance vs. Performance Trade-off
+### TL;DR: Compliance vs. Performance Trade-off
 The core objective was to test the "Fairness through Unawareness" approach. By comparing the "Full Model" (containing protected attributes) with the "Blind Model" (stripped of demographics), the audit yielded the following results:
 
 | Metric | Full Model (With Demographics) | Blind Model (GDPR Compliant) | Business & Legal Impact |
@@ -23,7 +23,7 @@ The core objective was to test the "Fairness through Unawareness" approach. By c
 
 ---
 
-### 🔍 Key Audit Findings
+### Key Audit Findings
 
 #### 1. The Fairness Audit (EU AI Act Compliance)
 Initial descriptive metrics via `fairlearn` suggested alarming discriminatory patterns (e.g., a 33.3% unfair denial rate for divorced applicants and systemic risk-flagging for youth). 
@@ -36,5 +36,5 @@ To test the strict legal necessity of processing sensitive demographic data, I a
 * **The Engineering Breakthrough:** Crucially, removing these demographic variables actually *improved* the model's underlying risk-ranking capability, increasing the **ROC-AUC score from 0.8013 to 0.8044**. This proves that removing demographic noise enhances model generalization.
 * **Verdict:** Processing demographic data is mathematically unnecessary for the core business logic. Retaining these features in the database violates the **GDPR Principle of Data Minimization**.
 
-### 💡 Actionable Recommendation
+### Actionable Recommendation
 **Implement the Blind Model.** Dropping protected demographic attributes from the feature engineering pipeline ensures absolute GDPR compliance, eliminates the borderline AI Act risk regarding marital status, and preserves 97.5% of the predictive power while actively improving the ROC-AUC score. This strategic adjustment significantly reduces the organization's exposure to regulatory fines without compromising commercial viability.
